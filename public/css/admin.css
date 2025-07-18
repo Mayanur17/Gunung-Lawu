@@ -1,0 +1,369 @@
+h3 {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 30px;
+    margin-bottom: 5px;
+    color: #2c3e50;
+}
+
+/* Responsif untuk layar kecil */
+@media (max-width: 600px) {
+    h3 {
+        font-size: 20px;
+        margin-top: 20px;
+    }
+}
+
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: 6px;
+}
+
+.table-responsive::-webkit-scrollbar {
+    height: 6px;
+}
+
+.table-responsive::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 3px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 14px;
+}
+
+thead {
+    background-color: #1e4674;
+    color: white;
+}
+
+th, td {
+    padding: 12px 16px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+    vertical-align: top;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tbody tr:hover {
+    background-color: #f0f8ff;
+}
+
+td img {
+    max-width: 100px;
+    height: auto;
+    border-radius: 4px;
+}
+
+
+/* === Tombol Aksi: Edit dan Hapus === */
+td a {
+    background-color: #4CAF50;
+    color: white;
+    padding: 6px 12px;
+    margin: 3px 2px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: bold;
+    display: inline-block;
+}
+
+td a:hover {
+    background-color: #3c8c41;
+}
+
+td form {
+    display: inline;
+}
+
+td form button {
+    background-color: #dc3545;
+    color: white;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+td form button:hover {
+    background-color: #c82333;
+}
+
+/* === Tombol Tambah=== */
+a.tombol-tambah{
+    background-color: #0066cc;
+    color: white;
+    padding: 8px 14px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    display: inline-block;
+}
+
+a.tombol-tambah:hover {
+    background-color: #004f9a;
+}
+
+.form-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+form.admin-form {
+    max-width: 600px;
+    width: 100%;
+    background: #ffffff;
+    padding: 25px 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.06);
+    margin: 30px auto;
+}
+
+
+form.admin-form label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+    color: #333;
+    margin-top: 15px;
+}
+
+/* Input dan Textarea */
+form.admin-form input[type="text"],
+form.admin-form textarea,
+form.admin-form input[type="file"] {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* Textarea khusus */
+form.admin-form textarea {
+    height: 120px;
+    resize: vertical;
+}
+
+/* Tombol */
+form.admin-form button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #0066cc;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/* Responsif untuk layar kecil */
+@media (max-width: 600px) {
+    form.admin-form {
+        padding: 20px;
+    }
+
+    form.admin-form button {
+        width: 100%;
+    }
+}
+.detail-container {
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 700px;
+    margin: 30px auto;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.08);
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.detail-container h2 {
+    margin-bottom: 25px;
+    color: #333;
+    border-bottom: 2px solid #0066cc;
+    padding-bottom: 10px;
+}
+
+.detail-container p {
+    font-size: 16px;
+    margin-bottom: 15px;
+    color: #444;
+}
+
+.detail-container strong {
+    color: #000;
+}
+
+.detail-container img {
+    display: block;
+    margin-top: 10px;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    max-width: 100%;
+    height: auto;
+}
+
+.detail-container a {
+    display: inline-block;
+    margin-top: 20px;
+    background-color: #0066cc;
+    color: #fff;
+    padding: 10px 18px;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: background 0.3s ease;
+}
+
+.detail-container a:hover {
+    background-color: #004f9a;
+}
+form input[type="date"],
+form input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+.btn-success {
+    background-color: #28a745;
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 4px;
+}
+
+
+
+.admin-booking-container {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 12px;
+}
+
+.admin-booking-container h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #333;
+}
+
+.glw-alert-success {
+    background-color: #dff0d8;
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    color: #3c763d;
+}
+
+.glw-table-booking {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+.glw-table-booking th, .glw-table-booking td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+}
+
+.glw-table-booking th {
+    background-color: #5daae0;
+    text-align: left;
+    color: #333;
+}
+
+.btn-approve {
+    padding: 6px 12px;
+    background-color: #2ecc71;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.btn-approve:hover {
+    background-color: #27ae60;
+}
+
+
+
+
+
+
+.admin-booking-detail {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #fefefe;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 16px;
+    color: #333;
+}
+
+.admin-booking-detail h2, .admin-booking-detail h3 {
+    color: #2c3e50;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+}
+
+.admin-booking-detail p {
+    margin: 10px 0;
+}
+
+.admin-booking-detail ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.admin-booking-detail li {
+    margin-bottom: 8px;
+    padding: 6px 10px;
+    background-color: #f8f9fa;
+    border-radius: 6px;
+}
+
+.admin-booking-detail img {
+    margin-top: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+@media screen and (max-width: 600px) {
+    .admin-booking-detail {
+        padding: 15px;
+        font-size: 15px;
+    }
+
+    .admin-booking-detail img {
+        width: 100%;
+        height: auto;
+    }
+}
+

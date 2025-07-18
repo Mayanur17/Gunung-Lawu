@@ -1,0 +1,623 @@
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: #2e4a33;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 10px;
+}
+
+.card {
+    display: flex;
+    align-items: center; 
+    flex-direction: row;
+    gap: 20px;
+    border-left: 5px solid #006400;
+    border-radius: 8px;
+    margin-bottom: 40px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    background-color: #f9f9f9;
+    padding: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.01);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.card-img-top {
+    width: 280px;
+    height: auto;
+    object-fit: contain; 
+    flex-shrink: 0;
+    align-self: center;
+}
+
+.card-body {
+    flex: 1;
+    padding: 10px 0;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #006400;
+    text-transform: uppercase;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 5px;
+}
+
+.card-text {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #333;
+    text-align: justify;
+}
+
+/* Responsive (Stacked Layout) */
+@media (max-width: 768px) {
+    .card {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card-img-top {
+        width: 100%;
+        height: auto;
+    }
+
+    .card-title {
+        font-size: 1.25rem;
+    }
+
+    .card-text {
+        font-size: 0.95rem;
+    }
+}
+
+
+
+
+
+.jalur-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 30px;
+    font-family: 'Segoe UI', sans-serif;
+    color: #1e293b;
+    background-color: #f9fefb;
+    border-radius: 10px;
+}
+
+.jalur-container h2 {
+    text-align: center;
+    font-size: 2.4rem;
+    margin-bottom: 30px;
+    color: #166534;
+    position: relative;
+}
+
+.jalur-container h2::after {
+    content: "";
+    width: 80px;
+    height: 4px;
+    background-color: #22c55e;
+    display: block;
+    margin: 10px auto 0;
+    border-radius: 4px;
+}
+
+.jalur-content {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.jalur-img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.jalur-info {
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    text-align: left;
+}
+
+.jalur-info p {
+    margin-bottom: 15px;
+    font-size: 1.05rem;
+    color: #374151;
+}
+
+.jalur-info strong {
+    color: #15803d;
+    font-weight: 600;
+}
+
+.jalur-deskripsi {
+    line-height: 1.8;
+    background-color: #f0fdf4;
+    padding: 15px;
+    border-left: 4px solid #22c55e;
+    border-radius: 8px;
+    text-align: justify;
+}
+
+.btn-booking {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 25px;
+    padding: 12px 24px;
+    background-color: #16a34a;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+    font-size: 1rem;
+    width: 100%;             /* Tambahan agar penuh */
+    box-sizing: border-box;  /* Hindari overflow padding */
+}
+
+.btn-booking i {
+    margin-right: 8px;
+}
+
+.btn-booking:hover {
+    background-color: #15803d;
+}
+
+/* Media query untuk layar sangat kecil */
+@media (max-width: 480px) {
+    .btn-booking {
+        font-size: 0.95rem;
+        padding: 10px 20px;
+        width: 100%;
+    }
+}
+
+
+
+.peta-section {
+    margin-top: 50px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    border-left: 5px solid #38bdf8;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    text-align: center;
+}
+
+.peta-section h4 {
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    color: #0f172a;
+}
+
+.peta-img {
+    width: 80%;
+    max-width: 600px;
+    height: auto;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    margin: auto;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .jalur-info {
+        padding: 20px;
+    }
+
+    .btn-booking {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .peta-img {
+        width: 100%;
+    }
+}
+.video-section {
+    margin-top: 50px;
+    padding: 20px;
+    background-color: #f0fdf4;
+    border-left: 5px solid #22c55e;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.video-section h4 {
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+    color: #14532d;
+    text-align: center;
+}
+
+.video-grid {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.video-wrapper {
+    flex: 1 1 300px;
+    max-width: 32%;
+    aspect-ratio: 16 / 9;
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    top: 0;
+    left: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .video-wrapper {
+        max-width: 100%;
+        aspect-ratio: 16 / 9;
+    }
+}
+
+
+
+.cerita-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: 'Segoe UI', sans-serif;
+    color: #333;
+}
+
+.cerita-wrapper h2 {
+    margin-bottom: 20px;
+    color: #2e8b57;
+}
+
+/* ========== Form Kirim Cerita ========== */
+.cerita-form {
+    background: #f1f8f4;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    margin-bottom: 30px;
+}
+
+.cerita-form textarea,
+.cerita-form input[type="text"],
+.cerita-form input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+.cerita-form button {
+    padding: 10px 16px;
+    background-color: #2e8b57;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cerita-form button:hover {
+    background-color: #276e48;
+}
+
+/* ========== Cerita yang Sudah Dikirim ========== */
+.story-item {
+    background: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 25px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.story-item img {
+    max-width: 100%;         
+    width: auto;            
+    height: auto;            
+    max-height: 300px;       
+    object-fit: contain;     
+    border-radius: 6px;
+    margin: 10px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: block;
+}
+
+.story-item strong {
+    font-size: 1.1rem;
+    color: #2e8b57;
+}
+
+.story-item p {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* ========== Komentar & Balasan ========== */
+.story-komentar {
+    margin-top: 15px;
+    padding-left: 15px;
+    border-left: 3px solid #eee;
+}
+
+.story-komentar h5 {
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.story-komentar p {
+    font-size: 0.95rem;
+    color: #444;
+    margin-bottom: 5px;
+}
+
+.story-komentar form {
+    margin-top: 10px;
+}
+
+.story-komentar input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    font-size: 0.95rem;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+/* ========== Responsive ========== */
+@media (max-width: 600px) {
+    .cerita-form,
+    .story-item {
+        padding: 15px;
+    }
+
+    .cerita-form textarea,
+    .cerita-form input,
+    .story-komentar input[type="text"] {
+        font-size: 0.95rem;
+    }
+
+    .cerita-form button,
+    .story-komentar button {
+        width: 100%;
+        margin-top: 10px;
+    }
+}
+.booking-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #f8f9fa;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.08);
+}
+
+.booking-container h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #343a40;
+}
+
+fieldset {
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 25px;
+    background-color: #fff;
+}
+
+fieldset legend {
+    font-weight: bold;
+    font-size: 16px;
+    padding: 0 10px;
+    color: #495057;
+}
+
+label {
+    display: block;
+    margin-top: 15px;
+    font-weight: 500;
+    color: #212529;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[type="date"],
+input[type="file"],
+select,
+textarea {
+    width: 100%;
+    padding: 10px 12px;
+    margin-top: 5px;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.form-footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+.btn-submit {
+    background-color: #198754;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    font-size: 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-submit:hover {
+    background-color: #157347;
+}
+
+.btn-reset {
+    background-color: #0066cc;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    font-size: 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-reset:hover {
+    background-color: #5c636a;
+}
+
+
+.alert {
+    padding: 10px 15px;
+    margin-bottom: 20px;
+    border-radius: 6px;
+}
+
+.alert-success {
+    background-color: #d1e7dd;
+    color: #0f5132;
+}
+
+.alert-danger {
+    background-color: #f8d7da;
+    color: #842029;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #fff;
+}
+
+table th,
+table td {
+    padding: 10px 12px;
+    border: 1px solid #dee2e6;
+    font-size: 14px;
+}
+
+table th {
+    background-color: #f1f1f1;
+    text-align: left;
+}
+.persiapan-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+}
+
+.persiapan-item {
+    background: #e6f4f1;
+    border-left: 5px solid #2a9d8f;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+    transition: background-color 0.3s ease;
+}
+
+.persiapan-item:hover {
+    background-color: #d1f1ea;
+}
+
+.persiapan-item h4 {
+    margin: 0 0 10px;
+    color: #264653;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.persiapan-item p {
+    margin: 0;
+    color: #444;
+    line-height: 1.5;
+    font-size: 0.95rem;
+}
+.book-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.book-box {
+    width: 280px;
+    text-align: center;
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    padding-bottom: 20px;
+}
+
+.book-box img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.book-box h3 {
+    margin: 15px 0 10px;
+    font-size: 18px;
+    color: #222;
+}
+
+.book-btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 16px;
+    background-color: #28a745;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.book-btn:hover {
+    background-color: #218838;
+}

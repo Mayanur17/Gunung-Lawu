@@ -1,0 +1,460 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    }
+
+header {
+    font-family: 'Playfair Display', serif;
+    background-color: #2c3e50;
+    padding: 10px 20px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* posisikan konten ke tengah secara horizontal */
+    position: relative;
+    height: 80px;
+    text-align: center;
+}
+
+.logo {
+    width: 70px;
+    height: auto;
+    margin-right: 15px;
+    flex-shrink: 0;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header h1 {
+    font-size: 1.8rem;
+    color: #fff;
+    margin: 0;
+    white-space: nowrap;
+}
+
+@media screen and (max-width: 768px) {
+    header {
+        flex-direction: row;
+        flex-wrap: nowrap; /* jangan wrap agar tetap satu baris */
+        justify-content: center;
+        align-items: center;
+        height: auto;
+        padding: 8px 12px;
+    }
+
+    .header-content {
+        display: flex;
+        align-items: center;
+        gap: 8px; /* jarak antara logo dan tulisan */
+    }
+
+    .logo {
+        width: 45px;
+        margin-right: 8px;
+    }
+
+    header h1 {
+        font-size: 1.1rem;
+        margin: 0;
+        line-height: 1.2;
+        text-align: center;
+    }
+}
+
+
+
+nav {
+    background-color: #547792;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    flex-wrap: wrap;
+}
+
+/* Semua link di menu */
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    display: inline-block;
+}
+
+nav a:hover {
+    background-color: #AFDDFF;
+    color: black;
+}
+
+/* Kontainer semua link */
+.nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* User login info dan logout */
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.login-link {
+    background-color: #5daae0;
+    border-radius: 5px;
+    padding: 8px 14px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: white;
+}
+
+.login-link i {
+    font-size: 16px;
+}
+
+.btn-logout {
+    background-color: #c0392b;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Responsive: collapse ke bawah saat layar kecil */
+@media (max-width: 768px) {
+    nav {
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+        gap: 10px;
+        flex-grow: 1;
+    }
+
+    .user-info, .login-link {
+        margin-top: 10px;
+        align-self: flex-end;
+        white-space: nowrap;
+    }
+
+    nav a {
+        padding: 10px 10px;
+        font-size: 14px;
+    }
+}
+        main {
+            padding: 20px;
+        }
+
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-top: 40px;
+        }
+
+
+.video-text-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
+  font-family: soria;;
+}
+
+/* Video dan teks masing-masing mengambil 50% di layar besar */
+.video-box, .text-box {
+  flex: 1 1 45%;
+  min-width: 300px;
+}
+
+/* Pastikan iframe responsif */
+.video-box iframe {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  border-radius: 8px;
+}
+
+/* Responsif untuk layar kecil */
+@media (max-width: 768px) {
+  .video-text-container {
+    flex-direction: column;
+  }
+
+  .video-box, .text-box {
+    flex: 1 1 100%;
+  }
+}
+.container-pesona {
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.judul {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+/* Scroll horizontal untuk gambar */
+.gambar-slider {
+    display: flex;
+    overflow-x: auto;
+    gap: 15px;
+    scroll-behavior: smooth;
+    padding-bottom: 10px;
+}
+
+.gambar-slider img {
+    flex: 0 0 auto;
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.gambar-slider img:hover {
+    transform: scale(1.05);
+}
+
+.deskripsi {
+    margin-top: 30px;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .gambar-slider img {
+        width: 220px;
+        height: 150px;
+    }
+
+    .judul {
+        font-size: 1.5rem;
+    }
+
+    .deskripsi {
+        font-size: 1rem;
+    }
+}
+.container-peralatan {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 20px;
+    text-align: center;
+    background-color: #BDDDE4;
+    border-radius: 10px;
+}
+
+.container-peralatan .judul {
+    font-size: 1.8rem;
+    color: #2c3e50;
+    margin-bottom: 25px;
+}
+
+.peralatan-gambar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 100px;
+}
+
+.peralatan-gambar .item {
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.peralatan-gambar img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+}
+
+.peralatan-gambar .nama {
+    margin-top: 10px;
+    font-weight: 600;
+    font-size: 1rem;
+    color: #2c3e50;
+}
+
+.peralatan-gambar .deskripsi {
+    margin-top: 5px;
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.4;
+    padding: 0 10px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .peralatan-gambar .item {
+        width: 100%;
+    }
+}
+
+.container-persiapan {
+    max-width: 1000px;
+    margin: 60px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+.persiapan-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 30px;
+}
+
+.persiapan-text {
+    flex: 1;
+    min-width: 280px;
+}
+
+.persiapan-text .judul {
+    font-size: 1.6rem;
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+.persiapan-text p {
+    font-size: 1rem;
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.btn-learn-more {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #2c3e50;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.btn-learn-more:hover {
+    background-color: #1a242f;
+}
+
+.persiapan-img {
+    flex: 1;
+    text-align: center;
+}
+
+.persiapan-img img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .persiapan-content {
+        flex-direction: column-reverse;
+    }
+}
+
+.auth-form {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 30px;
+    background: linear-gradient(to bottom right, #ffffff, #f0f4f8);
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', sans-serif;
+    transition: transform 0.3s ease;
+}
+
+.auth-form:hover {
+    transform: scale(1.02);
+}
+
+.auth-form h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #2c3e50;
+    font-size: 24px;
+}
+
+.auth-form label {
+    display: block;
+    margin-top: 15px;
+    font-weight: 600;
+    color: #333;
+}
+
+.auth-form input {
+    width: 100%;
+    padding: 12px 14px;
+    margin-top: 8px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    font-size: 15px;
+}
+
+.auth-form input:focus {
+    border-color: #5daae0;
+    box-shadow: 0 0 5px rgba(93, 170, 224, 0.5);
+    outline: none;
+}
+
+.auth-form button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 25px;
+    background: #2c3e50;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.auth-form button:hover {
+    background: #1a242f;
+}
+
+p a {
+    color: #5daae0;            
+    font-weight: bold;        
+    text-decoration: none;     
+    transition: color 0.3s ease;
+}
+
+p a:hover {
+    color: #095082;            
+    text-decoration: underline; 
+}
+
