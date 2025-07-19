@@ -1,7 +1,5 @@
 @extends('layout.app')
-@push('styles')
-<link rel="stylesheet" href="{{ asset('css/beranda.css') }}">
-@endpush
+
 @section('title', 'Beranda–Website Gunung Lawu')
 
 @section('content')
