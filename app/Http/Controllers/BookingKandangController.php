@@ -89,7 +89,7 @@ class BookingKandangController extends Controller
         'no_telp' => $request->no_telp,
         'email' => $request->email,
         'foto_identitas' => $path,
-        'status' => 'menunggu'
+        'status' => 'pending'
     ]);
 
     // 6. Simpan anggota
