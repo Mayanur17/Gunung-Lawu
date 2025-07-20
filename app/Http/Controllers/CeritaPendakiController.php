@@ -24,10 +24,10 @@ class CeritaPendakiController extends Controller
             'isi' => 'required',
             'gambar' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
         ]);
-
-        $gambar = null;
+        
         if ($request->hasFile('gambar')) {
-            $gambar = $request->file('gambar')->store('cerita', 'public');
+        $path = $request->file('gambar')->store('public/cerita');
+        $item->gambar = str_replace('public/', '', $path); // hasil: cerita/namafile.jpg
         }
 
         CeritaPendaki::create([
