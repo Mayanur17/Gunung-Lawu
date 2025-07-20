@@ -19,25 +19,28 @@ class CeritaPendakiController extends Controller
 
     // Simpan cerita baru
     public function simpan(Request $request)
-    {
-        $request->validate([
-            'isi' => 'required',
-            'gambar' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
-        ]);
-        
-        if ($request->hasFile('gambar')) {
+{
+    $request->validate([
+        'isi' => 'required',
+        'gambar' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+    ]);
+
+    $gambar = null;
+
+    if ($request->hasFile('gambar')) {
         $path = $request->file('gambar')->store('public/cerita');
-        $item->gambar = str_replace('public/', '', $path); // hasil: cerita/namafile.jpg
-        }
-
-        CeritaPendaki::create([
-            'user_id' => Auth::id(), // simpan ID pengguna
-            'isi' => $request->isi,
-            'gambar' => $gambar,
-        ]);
-
-        return redirect()->back()->with('success', 'Cerita berhasil dikirim!');
+        $gambar = str_replace('public/', '', $path); // hasil: cerita/namafile.jpg
     }
+
+    CeritaPendaki::create([
+        'user_id' => Auth::id(),
+        'isi' => $request->isi,
+        'gambar' => $gambar,
+    ]);
+
+    return redirect()->back()->with('success', 'Cerita berhasil dikirim!');
+}
+
 
     // Simpan balasan dari user lain
     public function balas(Request $request, $cerita_id)
