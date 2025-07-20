@@ -67,8 +67,12 @@ class BookingSewuController extends Controller
     // 4. Upload foto jika ada
     $path = null;
     if ($request->hasFile('foto_identitas')) {
-        $path = $request->file('foto_identitas')->store('identitas', 'public');
-    }
+    $file = $request->file('foto_identitas');
+    $nama_file = time() . '_' . $file->getClientOriginalName();
+    $file->move(public_path('images'), $nama_file);
+    $path = 'images/' . $nama_file; 
+}
+
 
     // 5. Simpan booking
     $booking = CemorosewuDetail::create([

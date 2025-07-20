@@ -77,8 +77,10 @@
             <label>Email Aktif:</label>
             <input type="email" name="email" id="email" pattern="^[a-zA-Z0-9._%+-]+@gmail\.com$" title="Gunakan alamat Gmail saja" required>
 
-            <label>Upload Foto Identitas (Max 2MB):</label>
-            <input type="file" name="foto_identitas" accept="image/*">
+            
+            <label for="foto_identitas">Upload Foto Identitas (Max 2MB):</label><br>
+            <input type="file" name="foto_identitas" id="foto_identitas" accept="image/*" required><br><br>
+
         </fieldset>
 
         {{-- Anggota --}}

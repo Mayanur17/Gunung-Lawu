@@ -17,7 +17,6 @@ class CeritaPendakiController extends Controller
         return view('pendaki.cerita', compact('cerita'));
     }
 
-    // Simpan cerita baru
     public function simpan(Request $request)
 {
     $request->validate([
@@ -28,8 +27,10 @@ class CeritaPendakiController extends Controller
     $gambar = null;
 
     if ($request->hasFile('gambar')) {
-        $path = $request->file('gambar')->store('public/cerita');
-        $gambar = str_replace('public/', '', $path); // hasil: cerita/namafile.jpg
+        $file = $request->file('gambar');
+        $nama_file = time() . '_' . $file->getClientOriginalName();
+        $file->move(public_path('images'), $nama_file); 
+        $gambar = 'images/' . $nama_file; 
     }
 
     CeritaPendaki::create([
