@@ -119,15 +119,17 @@ Sari, Perempuan, Jogja, 0822334455"></textarea>
             <strong>Jenis Pendakian:</strong> {{ $b->keterangan }}<br>
             <strong>Jumlah Pendaki:</strong> {{ $b->jumlah_pendaki }}<br>
             <strong>Status:</strong>
-            @if($b->status == 'approve')
-                <span style="color: green;">Disetujui</span>
+                @if($b->status == 'approve')
+            <span style="color: green;">Disetujui</span>
+
             @elseif($b->status == 'decline')
-                <span style="color: red;">Ditolak</span>
-                @if($b->keterangan)
-                    <br><strong>Alasan Penolakan:</strong> {{ $b->keterangan-admin }}
-                @endif
+            <span style="color: red;">Ditolak</span>
+             @if($b->keterangan_admin)
+             <br><strong>Alasan Penolakan:</strong> {{ $b->keterangan_admin }}
+            @endif
+
             @else
-                <span style="color: orange;">Menunggu</span>
+            <span style="color: orange;">Pending</span>
             @endif
 
             @if($b->anggota && count($b->anggota) > 0)
