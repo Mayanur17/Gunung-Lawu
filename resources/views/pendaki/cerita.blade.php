@@ -23,7 +23,7 @@
         <div class="story-item">
             <strong>{{ $item->user->name ?? 'Anonim' }}</strong><br>
             @if($item->gambar)
-                <img src="{{ secure_asset('storage/' . $item->gambar) }}" alt="Foto Cerita">>
+                <img src="{{ secure_asset('public/storage/' . $item->gambar) }}" alt="Foto Cerita">>
             @endif
             <p>{{ $item->isi }}</p>
 
