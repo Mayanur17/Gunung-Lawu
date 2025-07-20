@@ -1,6 +1,6 @@
 @extends('layout.app')
 @push('styles')
-<link rel="stylesheet" href="{{ asset('css/admin.css') }}">
+<link rel="stylesheet" href="{{ secure_asset('css/admin.css') }}">
 @endpush
 
 @section('content')
@@ -21,7 +21,7 @@
         <tr>
             <td>{{ $item->judul }}</td>
             <td>{{ Str::limit($item->deskripsi, 100) }}</td>
-            <td><img src="{{ asset('images/' . $item->gambar) }}" width="100"></td>
+            <td><img src="{{ secure_asset('images/' . $item->gambar) }}" width="100"></td>
             <td>
                 <a href="{{ route('pesona.show', $item->id) }}">Lihat</a> 
                 <a href="{{ route('pesona.edit', $item->id) }}">Edit</a>

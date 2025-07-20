@@ -1,7 +1,7 @@
 @extends('layout.app')
 
 @push('styles')
-<link rel="stylesheet" href="{{ asset('css/pendaki.css') }}">
+<link rel="stylesheet" href="{{ secure_asset('css/pendaki.css') }}">
 @endpush
 
 @section('content')

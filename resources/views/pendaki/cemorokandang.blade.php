@@ -1,7 +1,7 @@
 @extends('layout.app')
 
 @push('styles')
-<link rel="stylesheet" href="{{ asset('css/pendaki.css') }}">
+<link rel="stylesheet" href="{{ secure_asset('css/pendaki.css') }}">
 @endpush
 
 @section('content')
@@ -9,7 +9,7 @@
     <h2>{{ $cemoroKandang->jalur_pendakian }}</h2>
 
     <div class="jalur-content">
-        <img src="{{ asset('images/' . $cemoroKandang->gambar) }}" alt="Gambar Jalur" class="jalur-img">
+        <img src="{{ secure_asset('images/' . $cemoroKandang->gambar) }}" alt="Gambar Jalur" class="jalur-img">
 
         <div class="jalur-info">
             <p><strong>Alamat:</strong> {{ $cemoroKandang->alamat_jalur }}</p>
@@ -19,7 +19,7 @@
 
     <div class="peta-section">
         <h4>Peta Jalur</h4>
-        <img src="{{ asset('images/' . $cemoroKandang->gambar_peta) }}" alt="Peta Jalur" class="peta-img">
+        <img src="{{ secure_asset('images/' . $cemoroKandang->gambar_peta) }}" alt="Peta Jalur" class="peta-img">
     </div>
 
     <div class="video-section" style="margin-top: 30px; text-align: center;">

@@ -1,6 +1,6 @@
 @extends('layout.app')
 @push('styles')
-<link rel="stylesheet" href="{{ asset('css/admin.css') }}">
+<link rel="stylesheet" href="{{ secure_asset('css/admin.css') }}">
 @endpush
 
 @section('content')

@@ -1,7 +1,7 @@
 @extends('layout.app')
 
 @push('styles')
-<link rel="stylesheet" href="{{ asset('css/jalur.css') }}">
+<link rel="stylesheet" href="{{ secure_asset('css/jalur.css') }}">
 @endpush
 
 @section('content')
@@ -12,7 +12,7 @@
     <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 30px;">
         @foreach ($data as $jalur)
         <div style="width: 300px; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1); background-color: #fff;">
-            <img src="{{ asset('images/' . $jalur->gambar) }}" alt="{{ $jalur->jalur_pendakian }}" style="width: 100%; height: 180px; object-fit: cover;">
+            <img src="{{ secure_asset('images/' . $jalur->gambar) }}" alt="{{ $jalur->jalur_pendakian }}" style="width: 100%; height: 180px; object-fit: cover;">
             <div style="padding: 20px;">
                 <h4 style="margin-bottom: 10px;">{{ $jalur->jalur_pendakian }}</h4>
                 <p style="font-size: 14px; color: #555; margin-bottom: 10px;"><strong>Alamat:</strong> {{ $jalur->alamat_jalur }}</p>

@@ -1,7 +1,7 @@
 @extends('layout.app')
 
 @push('styles')
-<link rel="stylesheet" href="{{ asset('css/admin.css') }}">
+<link rel="stylesheet" href="{{ secure_asset('css/admin.css') }}">
 @endpush
 
 @section('content')
@@ -26,7 +26,7 @@
         <li><strong>Email:</strong> {{ $booking->email }}</li>
         <li><strong>Foto Identitas:</strong><br>
             @if($booking->foto_identitas)
-                <img src="{{ asset('storage/' . $booking->foto_identitas) }}" width="200">
+                <img src="{{ secure_asset('storage/' . $booking->foto_identitas) }}" width="200">
             @else
                 Tidak ada
             @endif

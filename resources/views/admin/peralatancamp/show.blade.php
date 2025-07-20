@@ -1,6 +1,6 @@
 @extends('layout.app')
 @push('styles')
-<link rel="stylesheet" href="{{ asset('css/admin.css') }}">
+<link rel="stylesheet" href="{{ secure_asset('css/admin.css') }}">
 @endpush
 
 @section('content')
@@ -12,7 +12,7 @@
 
     @if($peralatancamp->gambar)
         <p><strong>Gambar:</strong></p>
-        <img src="{{ asset('images/' . $peralatancamp->gambar) }}" width="200">
+        <img src="{{ secure_asset('images/' . $peralatancamp->gambar) }}" width="200">
     @endif
 
     <a href="{{ route('peralatancamp.index') }}">Kembali</a>

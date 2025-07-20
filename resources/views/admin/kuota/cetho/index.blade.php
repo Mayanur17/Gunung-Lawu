@@ -1,7 +1,7 @@
 @extends('layout.app')
 
 @push('styles')
-<link rel="stylesheet" href="{{ asset('css/jalur.css') }}">
+<link rel="stylesheet" href="{{ secure_asset('css/jalur.css') }}">
 @endpush
 
 @section('content')

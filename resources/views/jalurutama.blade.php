@@ -1,7 +1,7 @@
 @extends('layout.app')
 
 @push('styles')
-<link rel="stylesheet" href="{{ asset('css/jalur.css') }}">
+<link rel="stylesheet" href="{{ secure_asset('css/jalur.css') }}">
 @endpush
 
 @section('content')
@@ -11,36 +11,36 @@
         @auth
     @if(Auth::user()->role === 'admin')
         <a href="{{ route('jalur.index') }}" class="jalur-box">
-            <img src="{{ asset('images/cemorokandang.jpg') }}" alt="Cemoro Kandang">
+            <img src="{{ secure_asset('images/cemorokandang.jpg') }}" alt="Cemoro Kandang">
             <h3>Cemoro Kandang</h3>
         </a>
     @elseif(Auth::user()->role === 'pendaki')
         <a href="{{ route('pendaki.cemorokandang') }}" class="jalur-box">
-            <img src="{{ asset('images/cemorokandang.jpg') }}" alt="Cemoro Kandang">
+            <img src="{{ secure_asset('images/cemorokandang.jpg') }}" alt="Cemoro Kandang">
             <h3>Cemoro Kandang</h3>
         </a>
     @endif
 @else
     <a href="#" class="jalur-box">
-        <img src="{{ asset('images/cemorokandang.jpg') }}" alt="Cemoro Kandang">
+        <img src="{{ secure_asset('images/cemorokandang.jpg') }}" alt="Cemoro Kandang">
         <h3>Cemoro Kandang</h3>
     </a>
 @endauth
 @auth
     @if(Auth::user()->role === 'admin')
         <a href="{{ route('jalur.index') }}" class="jalur-box">
-            <img src="{{ asset('images/cemorosewu.jpg') }}" alt="Cemoro Sewu">
+            <img src="{{ secure_asset('images/cemorosewu.jpg') }}" alt="Cemoro Sewu">
             <h3>Cemoro Sewu</h3>
         </a>
     @elseif(Auth::user()->role === 'pendaki')
         <a href="{{ route('pendaki.cemorosewu') }}" class="jalur-box">
-            <img src="{{ asset('images/cemorosewu.jpg') }}" alt="Cemoro Sewu">
+            <img src="{{ secure_asset('images/cemorosewu.jpg') }}" alt="Cemoro Sewu">
             <h3>Cemoro Sewu</h3>
         </a>
     @endif
 @else
     <a href="#" class="jalur-box">
-        <img src="{{ asset('images/cemorosewu.jpg') }}" alt="Cemoro Sewu">
+        <img src="{{ secure_asset('images/cemorosewu.jpg') }}" alt="Cemoro Sewu">
         <h3>Cemoro Sewu</h3>
     </a>
 @endauth
@@ -48,18 +48,18 @@
         @auth
     @if(Auth::user()->role === 'admin')
         <a href="{{ route('jalur.index') }}" class="jalur-box">
-            <img src="{{ asset('images/cetho.jpg') }}" alt="Cetho">
+            <img src="{{ secure_asset('images/cetho.jpg') }}" alt="Cetho">
             <h3>Cetho</h3>
         </a>
     @elseif(Auth::user()->role === 'pendaki')
         <a href="{{ route('pendaki.cetho') }}" class="jalur-box">
-            <img src="{{ asset('images/cetho.jpg') }}" alt="Cetho">
+            <img src="{{ secure_asset('images/cetho.jpg') }}" alt="Cetho">
             <h3>Cetho</h3>
         </a>
     @endif
 @else
     <a href="#" class="jalur-box">
-        <img src="{{ asset('images/cetho.jpg') }}" alt="Cetho">
+        <img src="{{ secure_asset('images/cetho.jpg') }}" alt="Cetho">
         <h3>Cetho</h3>
     </a>
 @endauth

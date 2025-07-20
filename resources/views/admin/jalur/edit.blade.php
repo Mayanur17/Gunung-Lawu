@@ -1,6 +1,6 @@
 @extends('layout.app')
 @push('styles')
-<link rel="stylesheet" href="{{ asset('css/jalur.css') }}">
+<link rel="stylesheet" href="{{ secure_asset('css/jalur.css') }}">
 @endpush
 
 @section('content')
@@ -30,7 +30,7 @@
             <label>Gambar Jalur (opsional)</label>
             <input type="file" name="gambar" class="form-control">
             @if($jalur->gambar)
-            <img src="{{ asset('images/' . $jalur->gambar) }}" width="150" style="margin-top: 10px;">
+            <img src="{{ secure_asset('images/' . $jalur->gambar) }}" width="150" style="margin-top: 10px;">
             @endif
         </div>
 
@@ -38,7 +38,7 @@
             <label>Gambar Peta (opsional)</label>
             <input type="file" name="gambar_peta" class="form-control">
             @if($jalur->gambar_peta)
-            <img src="{{ asset('images/' . $jalur->gambar_peta) }}" width="150" style="margin-top: 10px;">
+            <img src="{{ secure_asset('images/' . $jalur->gambar_peta) }}" width="150" style="margin-top: 10px;">
             @endif
         </div>
 

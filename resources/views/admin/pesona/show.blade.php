@@ -1,7 +1,7 @@
 @extends('layout.app')
 
 @push('styles')
-<link rel="stylesheet" href="{{ asset('css/admin.css') }}">
+<link rel="stylesheet" href="{{ secure_asset('css/admin.css') }}">
 @endpush
 
 @section('content')
@@ -13,7 +13,7 @@
 
     @if($pesona->gambar)
         <p><strong>Gambar:</strong></p>
-        <img src="{{ asset('images/' . $pesona->gambar) }}" width="200" alt="Gambar {{ $pesona->judul }}">
+        <img src="{{ secure_asset('images/' . $pesona->gambar) }}" width="200" alt="Gambar {{ $pesona->judul }}">
     @endif
 
     <a href="{{ route('pesona.index') }}">Kembali</a>

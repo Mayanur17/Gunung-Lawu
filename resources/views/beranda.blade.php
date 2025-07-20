@@ -16,17 +16,17 @@
 <div class="container-pesona">
     <h2 class="judul">Pesona Gunung Lawu</h2>
     <div class="gambar-slider">
-        <img src="{{ asset('images/lawu1.jpeg') }}" alt="Gunung Lawu 1">
-        <img src="{{ asset('images/lawu2.jpg') }}" alt="Gunung Lawu 2">
-        <img src="{{ asset('images/gambar11.jpg') }}" alt="Gunung Lawu 3">
-        <img src="{{ asset('images/gambar12.jpg') }}" alt="Gunung Lawu 4">
-        <img src="{{ asset('images/gambar13.jpg') }}" alt="Gunung Lawu 5">
-        <img src="{{ asset('images/lawu7.jpg') }}" alt="Gunung Lawu 6">
-        <img src="{{ asset('images/lawu3.jpg') }}" alt="Gunung Lawu 7">
-        <img src="{{ asset('images/lawu4.jpg') }}" alt="Gunung Lawu 8">
-        <img src="{{ asset('images/lawu5.jpg') }}" alt="Gunung Lawu 9">
-        <img src="{{ asset('images/lawu8.jpg') }}" alt="Gunung Lawu 10">
-        <img src="{{ asset('images/lawu9.jpg') }}" alt="Gunung Lawu 11">
+        <img src="{{ secure_asset('images/lawu1.jpeg') }}" alt="Gunung Lawu 1">
+        <img src="{{ secure_asset('images/lawu2.jpg') }}" alt="Gunung Lawu 2">
+        <img src="{{ secure_asset('images/gambar11.jpg') }}" alt="Gunung Lawu 3">
+        <img src="{{ secure_asset('images/gambar12.jpg') }}" alt="Gunung Lawu 4">
+        <img src="{{ secure_asset('images/gambar13.jpg') }}" alt="Gunung Lawu 5">
+        <img src="{{ secure_asset('images/lawu7.jpg') }}" alt="Gunung Lawu 6">
+        <img src="{{ secure_asset('images/lawu3.jpg') }}" alt="Gunung Lawu 7">
+        <img src="{{ secure_asset('images/lawu4.jpg') }}" alt="Gunung Lawu 8">
+        <img src="{{ secure_asset('images/lawu5.jpg') }}" alt="Gunung Lawu 9">
+        <img src="{{ secure_asset('images/lawu8.jpg') }}" alt="Gunung Lawu 10">
+        <img src="{{ secure_asset('images/lawu9.jpg') }}" alt="Gunung Lawu 11">
 
     </div>
     <div class="deskripsi">
@@ -58,7 +58,7 @@
     <h2 class="judul">Peralatan Pendakian</h2>
     <div class="peralatan-gambar">
         <div class="item">
-            <img src="{{ asset('images/tektok.jpeg') }}" alt="Peralatan Tektok">
+            <img src="{{ secure_asset('images/tektok.jpeg') }}" alt="Peralatan Tektok">
             <p class="nama">Peralatan Tektok</p>
             <p class="deskripsi">
                 Peralatan tektok adalah perlengkapan ringan dan praktis yang digunakan untuk pendakian tanpa 
@@ -77,7 +77,7 @@
 @endauth
         </div>
         <div class="item">
-            <img src="{{ asset('images/camp.jpg') }}" alt="Peralatan Camping">
+            <img src="{{ secure_asset('images/camp.jpg') }}" alt="Peralatan Camping">
             <p class="nama">Peralatan Camping</p>
             <p class="deskripsi">
             Peralatan camp dalam pendakian adalah perlengkapan yang digunakan untuk mendirikan dan menunjang 
@@ -123,7 +123,7 @@
     <a href="#" class="btn-learn-more">Learn More</a>
 @endauth        </div>
         <div class="persiapan-img">
-            <img src="{{ asset('images/persiapan.jpg') }}" alt="Persiapan Pendakian">
+            <img src="{{ secure_asset('images/persiapan.jpg') }}" alt="Persiapan Pendakian">
         </div>
     </div>
 </div>
