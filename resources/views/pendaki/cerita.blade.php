@@ -22,7 +22,7 @@
         <div class="story-item">
             <strong>{{ $item->user->name ?? 'Anonim' }}</strong><br>
             @if($item->gambar)
-            <img src="{{ secure_asset('storage/' . $item->gambar) }}" alt="Foto Cerita" style="max-width: 100%; height: auto;">
+            <img src="{{ asset('storage/' . $item->gambar) }}" alt="Foto Cerita" style="max-width: 100%; height: auto;">
             @endif
             <p>{{ $item->isi }}</p>
 
