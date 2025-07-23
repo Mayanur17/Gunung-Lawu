@@ -52,11 +52,11 @@
     display: flex;
     justify-content: center;
     gap: 12px;
-    flex-wrap: wrap; /* agar responsive saat layar kecil */
+    flex-wrap: wrap; 
     margin-top: 15px;
 }
 
-/* Tombol Edit */
+
 .btn-primary {
     background-color: #007bff;
     color: white;
@@ -71,9 +71,6 @@
 .btn-primary:hover {
     background-color: #0056b3;
 }
-
-
-
 
 .btn {
     display: inline-flex;
@@ -102,7 +99,6 @@
     transform: translateY(-2px);
 }
 
-/* Tombol hijau */
 .btn-success {
     background: linear-gradient(to right, #28a745, #1e7e34);
     color: #fff;
@@ -116,7 +112,6 @@
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
 }
 
-/* Ikon kiri hanya sekali */
 .btn-success::before {
     content: "+";
     font-size: 18px;
@@ -176,9 +171,6 @@ image {
     max-width: 100%;
     height: auto;
 }
-
-/* kuota.css */
-
 .kuota-container {
     max-width: 800px;
     margin: 0 auto;
