@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 use App\Models\Berita;
 use Illuminate\Http\Request;
+use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 
 class BeritaController extends Controller
 {
@@ -20,21 +20,26 @@ class BeritaController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'judul' => 'required|string|max:255',
+            'judul'     => 'required|string|max:255',
             'deskripsi' => 'required|string',
-            'gambar' => 'required|image|max:2048',
+            'gambar'    => 'required|image|max:2048',
         ]);
 
+        $uploadedFileUrl = null;
+
         if ($request->hasFile('gambar')) {
-            $uploadedFileUrl = Cloudinary::upload(
-                $request->file('gambar')->getRealPath()
-            )->getSecurePath();
+            $gambar = $request->file('gambar');
+            $uploadResult = Cloudinary::upload($gambar->getRealPath(), [
+                'folder' => 'berita_gununglawu'
+            ]);
+
+            $uploadedFileUrl = $uploadResult->getSecurePath(); 
         }
 
         Berita::create([
-            'judul' => $request->judul,
+            'judul'     => $request->judul,
             'deskripsi' => $request->deskripsi,
-            'gambar' => $uploadedFileUrl ?? null,
+            'gambar'    => $uploadedFileUrl,
         ]);
 
         return back()->with('success', 'Berita berhasil ditambahkan');
@@ -47,21 +52,23 @@ class BeritaController extends Controller
     public function update(Request $request, Berita $berita)
     {
         $request->validate([
-            'judul' => 'required|string|max:255',
+            'judul'     => 'required|string|max:255',
             'deskripsi' => 'required|string',
-            'gambar' => 'nullable|image|max:2048',
+            'gambar'    => 'nullable|image|max:2048',
         ]);
 
         $data = [
-            'judul' => $request->judul,
+            'judul'     => $request->judul,
             'deskripsi' => $request->deskripsi,
         ];
 
         if ($request->hasFile('gambar')) {
-            $uploadedFileUrl = Cloudinary::upload(
-                $request->file('gambar')->getRealPath()
-            )->getSecurePath();
-            $data['gambar'] = $uploadedFileUrl;
+            $gambar = $request->file('gambar');
+            $uploadResult = Cloudinary::upload($gambar->getRealPath(), [
+                'folder' => 'berita_gununglawu'
+            ]);
+
+            $data['gambar'] = $uploadResult->getSecurePath();
         }
 
         $berita->update($data);
