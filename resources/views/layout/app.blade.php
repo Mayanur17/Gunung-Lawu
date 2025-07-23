@@ -10,16 +10,12 @@
 </head>
 <body>
 
-    {{-- header global --}}
     @include('partials.header')
 
-    {{-- navigasi global --}}
 <nav>
     <div class="nav-links">
         <a href="{{ route('beranda') }}">Beranda</a>
         <a href="{{ route('jalurutama') }}">Jalur Pendakian</a>
-
-        {{-- Route Info Trip berdasarkan role --}}
         @auth
             @if(Auth::user()->role === 'admin')
                 <a href="{{ route('info.index') }}">Info Trip</a>
@@ -29,8 +25,6 @@
         @else
             <a href="#">Info Trip</a>
         @endauth
-
-        {{-- Route Booking berdasarkan role --}}
         @auth
             @if(Auth::user()->role === 'pendaki')
                 <a href="{{ route('book.index') }}">Booking</a>
@@ -73,8 +67,6 @@
     <main>
         @yield('content')
     </main>
-
-    {{-- footer global --}}
     @include('partials.footer')
 
 </body>

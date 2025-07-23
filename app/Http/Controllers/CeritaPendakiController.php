@@ -25,18 +25,16 @@ class CeritaPendakiController extends Controller
     ]);
 
     $gambar = null;
-
     if ($request->hasFile('gambar')) {
-        $file = $request->file('gambar');
-        $nama_file = time() . '_' . $file->getClientOriginalName();
-        $file->move(public_path('images'), $nama_file); 
-        $gambar = 'images/' . $nama_file; 
+    $gambarPath = $request->file('gambar')->store('cerita', 'public');
+    } else {
+    $gambarPath = null;
     }
 
     CeritaPendaki::create([
-        'user_id' => Auth::id(),
-        'isi' => $request->isi,
-        'gambar' => $gambar,
+    'user_id' => auth()->id(),
+    'isi' => $request->isi,
+    'gambar' => $gambarPath,
     ]);
 
     return redirect()->back()->with('success', 'Cerita berhasil dikirim!');
