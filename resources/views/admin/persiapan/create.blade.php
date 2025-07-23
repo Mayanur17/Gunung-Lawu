@@ -6,8 +6,8 @@
 
 @section('content')
 <h3>Tambah Persiapan Pendakian Gunung Lawu</h3>
-<div class="table-responsive">
-<form action="{{ route('persiapan.store') }}" method="POST" class="admin-form">
+<div class="form-wrapper">
+    <form action="{{ route('persiapan.store') }}" method="POST" class="admin-form">
     @csrf
 
     <label>Jenis Persiapan:</label>

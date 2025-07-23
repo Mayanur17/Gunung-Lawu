@@ -6,7 +6,7 @@
 
 @section('content')
 <h3>Tambah Berita Terkini</h3>
-
+<div class="form-wrapper">
 <form action="{{ route('berita.store') }}" method="POST" enctype="multipart/form-data" class="admin-form">
     @csrf
 
@@ -21,4 +21,5 @@
 
     <button type="submit">Simpan</button>
 </form>
+</div>
 @endsection

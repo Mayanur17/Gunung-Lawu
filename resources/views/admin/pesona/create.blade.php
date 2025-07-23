@@ -6,7 +6,7 @@
 
 @section('content')
 <h3>Tambah Pesona Gunung Lawu</h3>
-<div class="table-responsive">
+<div class="form-wrapper">
 <form action="{{ route('pesona.store') }}" method="POST" enctype="multipart/form-data" class="admin-form">
     @csrf
 

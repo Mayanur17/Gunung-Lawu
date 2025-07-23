@@ -6,8 +6,8 @@
 
 @section('content')
 <h3>Tambah Info Trip Gunung Lawu</h3>
-<div class="table-responsive">
-<form action="{{ route('info.store') }}" method="POST" enctype="multipart/form-data" class="admin-form">
+<div class="form-wrapper">
+    <form action="{{ route('info.store') }}" method="POST" enctype="multipart/form-data" class="admin-form">
     @csrf
 
     <label>Nama Komunitas:</label>

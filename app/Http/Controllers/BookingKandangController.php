@@ -22,7 +22,7 @@ class BookingKandangController extends Controller
     $request->validate([
         'tanggal_pendakian' => 'required|date',
         'tanggal_turun' => 'required|date',
-        'jumlah_pendaki' => 'required|integer|min:2', // minimal 2 pendaki
+        'jumlah_pendaki' => 'required|integer|min:2', 
         'nama_ketua' => 'required',
         'tanggal_lahir_ketua' => 'required|date',
         'jenis_kelamin_ketua' => 'required',
