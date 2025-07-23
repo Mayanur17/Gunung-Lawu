@@ -8,7 +8,7 @@
     <h3>Detail Berita</h3>
 
     <p><strong>Judul:</strong> {{ $berita->judul }}</p>
-    <p><strong>Deskripsi:</strong> {{ $berita->deskripsi }}</p>
+    <p><strong>Deskripsi:</strong> {!! nl2br(e($berita->deskripsi)) !!}</p>
 
     @if($berita->gambar)
         <p><strong>Gambar:</strong></p>

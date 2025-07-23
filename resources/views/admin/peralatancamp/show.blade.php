@@ -8,7 +8,7 @@
     <h3>Detail Peralatan Camp</h3>
 
     <p><strong>Judul:</strong> {{ $peralatancamp->judul }}</p>
-    <p><strong>Deskripsi:</strong> {{ $peralatancamp->deskripsi }}</p>
+    <p><strong>Deskripsi:</strong> {!! nl2br(e($peralatancamp->deskripsi)) !!}</p>
 
     @if($peralatancamp->gambar)
         <p><strong>Gambar:</strong></p>

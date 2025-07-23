@@ -8,7 +8,7 @@
     <h3>Detail Info Komunitas</h3>
 
     <p><strong>Nama Komunitas:</strong> {{ $info->namakomunitas }}</p>
-    <p><strong>Deskripsi:</strong> {{ $info->deskripsi }}</p>
+    <p><strong>Deskripsi:</strong> {!! nl2br(e($info->deskripsi)) !!}</p>
 
     @if($info->gambar)
         <p><strong>Gambar:</strong></p>

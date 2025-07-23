@@ -13,7 +13,7 @@
             @endif
             <div class="card-body">
                 <h4 class="card-title">{{ $item->judul }}</h4>
-                <p class="card-text">>{!! nl2br(e($item->deskripsi)) !!}<p>
+                <p class="card-text">{!! nl2br(e($item->deskripsi)) !!}<p>
             </div>
         </div>
     @endforeach

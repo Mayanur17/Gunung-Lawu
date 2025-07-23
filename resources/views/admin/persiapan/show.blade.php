@@ -9,7 +9,7 @@
     <h3>Detail Persiapan Pendakian</h3>
 
     <p><strong>Jenis:</strong> {{ $persiapan->jenis }}</p>
-    <p><strong>Deskripsi:</strong> {{ $persiapan->deskripsi }}</p>
+    <p><strong>Deskripsi:</strong> {!! nl2br(e($persiapan->deskripsi)) !!}</p>
 
     <a href="{{ route('persiapan.index') }}">Kembali</a>
 </div>

@@ -8,7 +8,7 @@
     <h3>Detail Peralatan TekTok</h3>
 
     <p><strong>Judul:</strong> {{ $peralatantektok->judul }}</p>
-    <p><strong>Deskripsi:</strong> {{ $peralatantektok->deskripsi }}</p>
+    <p><strong>Deskripsi:</strong> {!! nl2br(e($peralatantektok->deskripsi)) !!}</p>
 
     @if($peralatantektok->gambar)
         <p><strong>Gambar:</strong></p>

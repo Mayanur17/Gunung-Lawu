@@ -1,11 +1,12 @@
 @extends('layout.app')
+
 @push('styles')
 <link rel="stylesheet" href="{{ secure_asset('css/admin.css') }}">
 @endpush
 
 @section('content')
-<h2>Data Pesona Gunung Lawu</h2>
-<a href="{{ route('pesona.create') }}" class="tombol-tambah">+ Tambah Pesona</a>
+<h2>Data Peralatan TekTok</h2>
+<a href="{{ route('pesona.create') }}" class="tombol-tambah">+ Tambah Peralatan</a>
 <div class="table-responsive">
 <table>
     <thead>
@@ -26,9 +27,10 @@
                     <img src="{{ secure_asset('images/' . $item->gambar) }}" width="100">
                 @endif
             </td>
-                <a href="{{ route('pesona.show', $item->id) }}">Lihat</a> 
-                <a href="{{ route('pesona.edit', $item->id) }}">Edit</a>
-                <form action="{{ route('pesona.destroy', $item->id) }}" method="POST" onsubmit="return confirm('Yakin?')">
+            <td>
+                <a href="{{ route('peralatantektok.show', $item->id) }}">Lihat</a> |
+                <a href="{{ route('peralatantektok.edit', $item->id) }}">Edit</a>
+                <form action="{{ route('peralatantektok.destroy', $item->id) }}" method="POST" style="display:inline" onsubmit="return confirm('Yakin?')">
                     @csrf
                     @method('DELETE')
                     <button>Hapus</button>
