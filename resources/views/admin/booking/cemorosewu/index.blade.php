@@ -6,7 +6,7 @@
 @section('content')
 <div class="admin-booking-container">
     <h2>Daftar Booking Pendakian Cemoro Sewu</h2>
-
+    <div class="table-responsive">
     @if(session('success')) <div class="glw-alert-success">{{ session('success') }}</div> @endif
 
     <table class="glw-table-booking">
@@ -63,7 +63,7 @@
         </tbody>
     </table>
 </div>
-
+</div>
 {{-- JS Prompt untuk menolak --}}
 <script>
 function confirmTolak(form) {
