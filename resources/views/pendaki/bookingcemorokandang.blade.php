@@ -69,7 +69,7 @@
             <textarea name="alamat_ketua" rows="2" required></textarea>
 
             <label>No Identitas:</label>
-            <input type="text" name="no_identitas_ketua" id="no_identitas_ketua" maxlength="20" pattern="\d+" title="Hanya angka yang diperbolehkan" required>
+            <input type="text" name="no_identitas_ketua" id="no_identitas_ketua" minlength="9" maxlength="16" pattern="\d{9,16}" title="Isi dengan 9 hingga 16 digit angka" required>
 
             <label>No HP / WA:</label>
             <input type="text" name="no_telp" maxlength="13" pattern="\d{10,13}" title="Masukkan 10 hingga 13 digit angka" required>
@@ -163,21 +163,17 @@ Sari, Perempuan, Jogja, 0822334455"></textarea>
         const anggotaTextarea = document.querySelector('textarea[name="anggota"]');
         const jumlahPendakiInput = document.querySelector('input[name="jumlah_pendaki"]');
 
-        // Validasi hanya angka untuk identitas
         identitasInput.addEventListener('input', function () {
             this.value = this.value.replace(/\D/g, '');
         });
 
-        // Set tanggal minimal pendakian hari ini
         const today = new Date().toISOString().split('T')[0];
         tanggalPendakian.setAttribute('min', today);
 
-        // Ketika tanggal pendakian diubah
         tanggalPendakian.addEventListener('change', function () {
             const selectedDate = this.value;
             if (!selectedDate) return;
 
-            // Atur batas tanggal turun
             tanggalTurun.value = '';
             tanggalTurun.setAttribute('min', selectedDate);
             const maxDateObj = new Date(selectedDate);
@@ -185,7 +181,6 @@ Sari, Perempuan, Jogja, 0822334455"></textarea>
             const maxDateStr = maxDateObj.toISOString().split('T')[0];
             tanggalTurun.setAttribute('max', maxDateStr);
 
-            // Ambil kuota dari server
             fetch(`/cek-kuota-kandang?tanggal=${selectedDate}`)
                 .then(res => res.json())
                 .then(data => {
@@ -219,7 +214,6 @@ Sari, Perempuan, Jogja, 0822334455"></textarea>
                 });
         });
 
-        // Validasi no HP hanya angka, max 13 digit
         inputTelp.addEventListener('input', function () {
             this.value = this.value.replace(/\D/g, '');
             if (this.value.length > 13) {
@@ -227,7 +221,6 @@ Sari, Perempuan, Jogja, 0822334455"></textarea>
             }
         });
 
-        // Validasi saat submit form
         form.addEventListener('submit', function (e) {
             let anggotaText = anggotaTextarea.value.trim();
             let jumlahPendaki = parseInt(jumlahPendakiInput.value);
@@ -267,6 +260,12 @@ Sari, Perempuan, Jogja, 0822334455"></textarea>
                 e.preventDefault();
                 return;
             }
+            const identitas = identitasInput.value;
+            if (identitas.length < 9 || identitas.length > 16) {
+            alert("No Identitas harus terdiri dari 9 hingga 16 digit angka.");
+            e.preventDefault();
+            return;
+    }
         });
     });
 </script>
