@@ -3,7 +3,10 @@
 return [
 
     'default' => env('FILESYSTEM_DISK', 'local'),
-    
+
+    // Tambahkan bagian ini:
+    'cloud' => env('FILESYSTEM_CLOUD', 'cloudinary'),
+
     'disks' => [
 
         'local' => [
