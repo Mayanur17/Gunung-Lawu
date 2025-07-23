@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use App\Models\CeritaPendaki;
 use App\Models\BalasanCerita;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Storage;
 
 class CeritaPendakiController extends Controller
 {
@@ -23,9 +22,14 @@ class CeritaPendakiController extends Controller
             'gambar' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
         ]);
 
-        $gambarPath = $request->hasFile('gambar')
-            ? $request->file('gambar')->store('cerita', 'public')
-            : null;
+        $gambarPath = null;
+
+        if ($request->hasFile('gambar')) {
+            $file = $request->file('gambar');
+            $filename = time() . '_' . $file->getClientOriginalName();
+            $file->move(public_path('images'), $filename);
+            $gambarPath = 'images/' . $filename; 
+        }
 
         CeritaPendaki::create([
             'user_id' => auth()->id(),
