@@ -15,7 +15,6 @@ class PesonaController extends Controller
 public function create() {
     return view('admin.pesona.create');
 }
-
 public function store(Request $request) {
     $request->validate([
         'judul' => 'required',
@@ -23,21 +22,18 @@ public function store(Request $request) {
         'gambar' => 'required|image|file|max:2048'
     ]);
 
+    $filename = null;
     if ($request->hasFile('gambar')) {
         $file = $request->file('gambar');
         $filename = time() . '_' . $file->getClientOriginalName();
-        $file->move(public_path('images'), $filename);
+        $filename = $file->storeAs('images', $filename, 'public'); 
     }
 
-    try {
-        PesonaLawu::create([
-            'judul' => $request->judul,
-            'deskripsi' => $request->deskripsi,
-            'gambar' => $filename
-        ]);
-    } catch (\Exception $e) {
-        dd('Gagal menyimpan data: ' . $e->getMessage());
-    }
+    PesonaLawu::create([
+        'judul' => $request->judul,
+        'deskripsi' => $request->deskripsi,
+        'gambar' => $filename
+    ]);
 
     return redirect()->route('pesona.index')->with('success', 'Data berhasil ditambahkan');
 }
