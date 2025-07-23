@@ -4,8 +4,6 @@ return [
 
     'default' => env('FILESYSTEM_DISK', 'local'),
     
-'cloud' => 'cloudinary',
-
     'disks' => [
 
         'local' => [

@@ -25,17 +25,18 @@ class BeritaController extends Controller
             'gambar'    => 'required|image|max:2048',
         ]);
 
+        // Upload gambar ke Cloudinary
         $uploadedFileUrl = null;
-
         if ($request->hasFile('gambar')) {
             $gambar = $request->file('gambar');
             $uploadResult = Cloudinary::upload($gambar->getRealPath(), [
                 'folder' => 'berita_gununglawu'
             ]);
 
-            $uploadedFileUrl = $uploadResult->getSecurePath(); 
+            $uploadedFileUrl = $uploadResult->getSecurePath();
         }
 
+        // Simpan data ke database
         Berita::create([
             'judul'     => $request->judul,
             'deskripsi' => $request->deskripsi,
