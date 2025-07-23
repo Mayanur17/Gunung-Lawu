@@ -24,6 +24,7 @@
     </form>
 
     <h3>Daftar Kuota</h3>
+    <div class="table-responsive">
     <table class="tabel-kuota">
         <thead>
             <tr>
@@ -54,5 +55,6 @@
             @endforeach
         </tbody>
     </table>
+</div>
 </div>
 @endsection
