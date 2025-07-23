@@ -6,7 +6,7 @@
 
 @section('content')
 <h3>Edit Info Trip Gunung Lawu</h3>
-
+<div class="table-responsive">
 <div class="form-wrapper">
     <form action="{{ route('info.update', $info) }}" method="POST" enctype="multipart/form-data" class="admin-form">
         @csrf
@@ -23,5 +23,6 @@
 
         <button type="submit">Update</button>
     </form>
+</div>
 </div>
 @endsection
