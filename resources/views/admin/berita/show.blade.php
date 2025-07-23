@@ -12,7 +12,7 @@
 
     @if($berita->gambar)
         <p><strong>Gambar:</strong></p>
-        <img src="{{ secure_asset('images/' . $berita->gambar) }}" width="200">
+        <img src="{{ $berita->gambar }}" width="200" style="border-radius: 5px;">
     @endif
 
     <a href="{{ route('berita.index') }}">Kembali</a>

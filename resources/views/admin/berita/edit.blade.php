@@ -18,6 +18,13 @@
         <label>Deskripsi:</label>
         <textarea name="deskripsi" required>{{ $berita->deskripsi }}</textarea>
 
+        <label>Gambar Saat Ini:</label>
+        @if($berita->gambar)
+            <div style="margin-bottom: 10px;">
+                <img src="{{ $berita->gambar }}" alt="gambar" style="width: 150px; border-radius: 5px;">
+            </div>
+        @endif
+
         <label>Ganti Gambar (opsional):</label>
         <input type="file" name="gambar">
 

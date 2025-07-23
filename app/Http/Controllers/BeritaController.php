@@ -24,7 +24,7 @@ class BeritaController extends Controller
 
     $uploadedFileUrl = Cloudinary::upload($request->file('gambar')->getRealPath())->getSecurePath();
 
-    ModelBerita::create([
+    Berita::create([
         'judul' => $request->judul,
         'deskripsi' => $request->deskripsi,
         'gambar' => $uploadedFileUrl, 
@@ -38,27 +38,27 @@ class BeritaController extends Controller
     }
 
     public function update(Request $request, Berita $berita) {
-        $request->validate([
-            'judul' => 'required',
-            'deskripsi' => 'required',
-            'gambar' => 'nullable|image|file|max:2048'
-        ]);
+    $request->validate([
+        'judul' => 'required',
+        'deskripsi' => 'required',
+        'gambar' => 'nullable|image|file|max:2048'
+    ]);
 
-        if ($request->hasFile('gambar')) {
-            $file = $request->file('gambar');
-            $filename = time() . '_' . $file->getClientOriginalName();
-            $file->move(public_path('images'), $filename);
-            $berita->gambar = $filename;
-        }
-
-        $berita->update([
-            'judul' => $request->judul,
-            'deskripsi' => $request->deskripsi,
-            'gambar' => $berita->gambar
-        ]);
-
-        return redirect()->route('berita.index')->with('success', 'Berita berhasil diperbarui');
+    if ($request->hasFile('gambar')) {
+   
+        $uploadedFileUrl = Cloudinary::upload($request->file('gambar')->getRealPath())->getSecurePath();
+        $berita->gambar = $uploadedFileUrl; 
     }
+
+    $berita->update([
+        'judul' => $request->judul,
+        'deskripsi' => $request->deskripsi,
+        'gambar' => $berita->gambar, 
+    ]);
+
+    return redirect()->route('berita.index')->with('success', 'Berita berhasil diperbarui');
+}
+
 
     public function destroy(Berita $berita) {
         $berita->delete();
