@@ -6,7 +6,7 @@
 
 @section('content')
 <h3>Tambah Peralatan Tektok Gunung Lawu</h3>
-
+<div class="table-responsive">
 <form action="{{ route('peralatantektok.store') }}" method="POST" enctype="multipart/form-data" class="admin-form">
     @csrf
 
@@ -21,4 +21,5 @@
 
     <button type="submit">Simpan</button>
 </form>
+</div>
 @endsection
