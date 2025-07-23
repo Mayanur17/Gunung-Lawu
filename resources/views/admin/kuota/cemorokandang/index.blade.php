@@ -11,7 +11,6 @@
     @if(session('success'))
         <div style="color: green;">{{ session('success') }}</div>
     @endif
-
     <form method="POST" action="{{ route('kuota.cemorokandang.store') }}" class="form-kuota ">
 
         @csrf
@@ -25,6 +24,7 @@
     </form>
 
     <h3>Daftar Kuota</h3>
+    <div class="table-responsive">
     <table class="tabel-kuota">
         <thead>
             <tr>
@@ -55,5 +55,6 @@
             @endforeach
         </tbody>
     </table>
+</div>
 </div>
 @endsection
