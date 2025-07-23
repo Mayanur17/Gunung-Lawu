@@ -11,7 +11,7 @@
     @if(session('success'))
         <div style="color: green;">{{ session('success') }}</div>
     @endif
-
+    <div class="table-responsive">
     <form method="POST" action="{{ route('kuota.cetho.store') }}" class="form-kuota ">
         @csrf
         <label for="tanggal">Tanggal:</label>
@@ -24,7 +24,6 @@
     </form>
 
     <h3>Daftar Kuota</h3>
-    <div class="table-responsive">
     <table class="tabel-kuota">
         <thead>
             <tr>
