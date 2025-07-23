@@ -27,7 +27,6 @@
         @csrf
         <input type="hidden" name="jalur" value="Cemoro Kandang">
 
-        {{-- Tanggal --}}
         <fieldset>
             <legend>Informasi Pendakian</legend>
 
@@ -48,7 +47,6 @@
             <small id="kuotaWarning" style="color:red; display:none;">Kuota penuh untuk tanggal ini!</small>
         </fieldset>
 
-        {{-- Ketua --}}
         <fieldset>
             <legend>Data Ketua Rombongan</legend>
 
@@ -56,7 +54,7 @@
             <input type="text" name="nama_ketua" required>
 
             <label>Tanggal Lahir:</label>
-            <input type="date" name="tanggal_lahir_ketua" required>
+            <input type="date" name="tanggal_lahir_ketua" max="2008-12-31" required>
 
             <label>Jenis Kelamin:</label>
             <select name="jenis_kelamin_ketua" required>
@@ -82,7 +80,6 @@
 
         </fieldset>
 
-        {{-- Anggota --}}
         <fieldset>
             <legend>Data Anggota</legend>
             <p><strong>Format:</strong> Nama, Jenis Kelamin, Alamat, No HP</p>
@@ -91,21 +88,18 @@ Budi, Laki-laki, Solo, 0812345678
 Sari, Perempuan, Jogja, 0822334455"></textarea>
         </fieldset>
 
-        {{-- Jumlah --}}
         <fieldset>
             <legend>Jumlah Pendaki</legend>
             <label>Total Pendaki (termasuk ketua):</label>
             <input type="number" name="jumlah_pendaki" min="1" required>
         </fieldset>
 
-        {{-- Tombol --}}
         <div class="form-footer">
             <button type="submit" class="btn-submit" id="btnKirimBooking">Kirim Booking</button>
             <button type="reset" class="btn-reset">Batal</button>
         </div>
     </form>
 
-    {{-- Riwayat --}}
     <hr>
     <h3>Riwayat Booking Anda</h3>
     @forelse($booking as $b)
@@ -148,7 +142,6 @@ Sari, Perempuan, Jogja, 0822334455"></textarea>
     @endforelse
 </div>
 
-{{-- JS Cek Kuota --}}
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         const tanggalPendakian = document.getElementById('tanggal_pendakian');

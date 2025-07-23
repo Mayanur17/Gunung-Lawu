@@ -26,7 +26,6 @@ Route::get('/', function () {
     return view('beranda');
 })->name('beranda');
 
-// Autentikasi
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
 Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register');
@@ -40,7 +39,6 @@ Route::get('/pendaki/cerita', [CeritaPendakiController::class, 'index'])->name('
     Route::post('/pendaki/cerita', [CeritaPendakiController::class, 'simpan'])->name('cerita.simpan');
     Route::post('/pendaki/cerita/{id}/balas', [CeritaPendakiController::class, 'balas'])->name('cerita.balas');
 
-// ADMIN ROUTES
 Route::middleware(['auth', RoleMiddleware::class . ':admin'])->group(function () {
     Route::resource('admin/pesona', PesonaController::class)->names('pesona');
     Route::resource('admin/peralatantektok', PeralatanTektokController::class)->names('peralatantektok');
@@ -55,18 +53,14 @@ Route::middleware(['auth', RoleMiddleware::class . ':admin'])->group(function ()
     Route::post('/admin/booking/cemorokandang/{id}/approve', [BookingKandangController::class, 'approve'])->name('booking.cemorokandang.approve');
     Route::get('/admin/booking/cemorokandang/{id}/detail', [BookingKandangController::class, 'show'])->name('booking.cemorokandang.detail');
     Route::post('/admin/booking/cemorokandang{id}/decline', [BookingKandangController::class, 'decline'])->name('booking.cemorokandang.decline');
-
     Route::get('/admin/booking/cemorosewu', [BookingSewuController::class, 'index'])->name('admin.booking.cemorosewu.index');
     Route::post('/admin/booking/cemorosewu/{id}/approve', [BookingSewuController::class, 'approve'])->name('booking.cemorosewu.approve');
     Route::get('/admin/booking/cemorosewu/{id}/detail', [BookingSewuController::class, 'show'])->name('booking.cemorosewu.detail');
     Route::post('/admin/booking/cemorosewu/{id}/decline', [BookingSewuController::class, 'decline'])->name('booking.cemorosewu.decline');
-
     Route::get('/admin/booking/cetho', [BookingCethoController::class, 'index'])->name('admin.booking.cetho.index');
     Route::post('/admin/booking/cetho/{id}/approve', [BookingCethoController::class, 'approve'])->name('booking.cetho.approve');
     Route::get('/admin/booking/cetho/{id}/detail', [BookingCethoController::class, 'show'])->name('booking.cetho.detail');
     Route::post('/admin/booking/cetho/{id}/decline', [BookingCethoController::class, 'decline'])->name('booking.cetho.decline');
-
-
     Route::get('/kuota/cemorokandang', [CemorokandangKuotaController::class, 'index'])->name('admin.kuota.cemorokandang');
     Route::post('/kuota/cemorokandang', [CemorokandangKuotaController::class, 'store'])->name('kuota.cemorokandang.store');
     Route::post('/kuota/cemorokandang/update/{id}', [CemorokandangKuotaController::class, 'update'])->name('kuota.cemorokandang.update');
@@ -83,7 +77,6 @@ Route::middleware(['auth', RoleMiddleware::class . ':admin'])->group(function ()
 
 });
 
-// PENDAKI ROUTES
 Route::middleware(['auth', RoleMiddleware::class . ':pendaki'])->group(function () {
     Route::get('/pendaki/pesona', [PendakiController::class, 'pesona'])->name('pendaki.pesona');
     Route::get('/pendaki/peralatantektok', [PendakiController::class, 'peralatanTektok'])->name('pendaki.peralatantektok');

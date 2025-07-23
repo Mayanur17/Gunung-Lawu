@@ -24,11 +24,10 @@
     </div>
 @endif
 
-    <form action="{{ route('booking.cemorosewu.simpan') }}" method="POST" enctype="multipart/form-data">
+    <form id="formBooking" action="{{ route('booking.cemorosewu.simpan') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <input type="hidden" name="jalur" value="Cemoro Sewu">
 
-        {{-- Tanggal --}}
         <fieldset>
             <legend>Informasi Pendakian</legend>
 
@@ -49,7 +48,6 @@
             <small id="kuotaWarning" style="color:red; display:none;">Kuota penuh untuk tanggal ini!</small>
         </fieldset>
 
-        {{-- Ketua --}}
         <fieldset>
             <legend>Data Ketua Rombongan</legend>
 
@@ -57,7 +55,7 @@
             <input type="text" name="nama_ketua" required>
 
             <label>Tanggal Lahir:</label>
-            <input type="date" name="tanggal_lahir_ketua" required>
+            <input type="date" name="tanggal_lahir_ketua" max="2008-12-31" required>
 
             <label>Jenis Kelamin:</label>
             <select name="jenis_kelamin_ketua" required>
@@ -83,7 +81,6 @@
 
         </fieldset>
 
-        {{-- Anggota --}}
         <fieldset>
             <legend>Data Anggota</legend>
             <p><strong>Format:</strong> Nama, Jenis Kelamin, Alamat, No HP</p>
@@ -92,21 +89,18 @@ Budi, Laki-laki, Solo, 0812345678
 Sari, Perempuan, Jogja, 0822334455"></textarea>
         </fieldset>
 
-        {{-- Jumlah --}}
         <fieldset>
             <legend>Jumlah Pendaki</legend>
             <label>Total Pendaki (termasuk ketua):</label>
             <input type="number" name="jumlah_pendaki" min="1" required>
         </fieldset>
 
-        {{-- Tombol --}}
         <div class="form-footer">
             <button type="submit" class="btn-submit" id="btnKirimBooking">Kirim Booking</button>
             <button type="reset" class="btn-reset">Batal</button>
         </div>
     </form>
 
-    {{-- Riwayat --}}
     <hr>
     <h3>Riwayat Booking Anda</h3>
     @forelse($booking as $b)
@@ -148,14 +142,13 @@ Sari, Perempuan, Jogja, 0822334455"></textarea>
     @endforelse
 </div>
 
-{{-- JS Cek Kuota --}}
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         const tanggalPendakian = document.getElementById('tanggal_pendakian');
         const tanggalTurun = document.getElementById('tanggal_turun');
         const kuotaWarning = document.getElementById('kuotaWarning');
         const kuotaInfo = document.getElementById('kuotaInfo');
-        const kirimButton = document.getElementById('btnKirimBooking');
+        const formBooking = document.getElementById('formBooking');
         const inputTelp = document.querySelector('input[name="no_telp"]');
         const identitasInput = document.getElementById('no_identitas_ketua');
 
@@ -163,21 +156,17 @@ Sari, Perempuan, Jogja, 0822334455"></textarea>
         const anggotaTextarea = document.querySelector('textarea[name="anggota"]');
         const jumlahPendakiInput = document.querySelector('input[name="jumlah_pendaki"]');
 
-        // Validasi hanya angka untuk identitas
         identitasInput.addEventListener('input', function () {
             this.value = this.value.replace(/\D/g, '');
         });
 
-        // Set tanggal minimal pendakian hari ini
         const today = new Date().toISOString().split('T')[0];
         tanggalPendakian.setAttribute('min', today);
 
-        // Ketika tanggal pendakian diubah
         tanggalPendakian.addEventListener('change', function () {
             const selectedDate = this.value;
             if (!selectedDate) return;
 
-            // Atur batas tanggal turun
             tanggalTurun.value = '';
             tanggalTurun.setAttribute('min', selectedDate);
             const maxDateObj = new Date(selectedDate);
@@ -185,7 +174,6 @@ Sari, Perempuan, Jogja, 0822334455"></textarea>
             const maxDateStr = maxDateObj.toISOString().split('T')[0];
             tanggalTurun.setAttribute('max', maxDateStr);
 
-            // Ambil kuota dari server
             fetch(`/cek-kuota-sewu?tanggal=${selectedDate}`)
                 .then(res => res.json())
                 .then(data => {
@@ -219,7 +207,6 @@ Sari, Perempuan, Jogja, 0822334455"></textarea>
                 });
         });
 
-        // Validasi no HP hanya angka, max 13 digit
         inputTelp.addEventListener('input', function () {
             this.value = this.value.replace(/\D/g, '');
             if (this.value.length > 13) {
@@ -227,22 +214,21 @@ Sari, Perempuan, Jogja, 0822334455"></textarea>
             }
         });
 
-        // Validasi saat submit form
-        form.addEventListener('submit', function (e) {
-            let anggotaText = anggotaTextarea.value.trim();
-            let jumlahPendaki = parseInt(jumlahPendakiInput.value);
+formBooking.addEventListener('submit', function (e) {
+    let anggotaText = anggotaTextarea.value.trim();
+    let jumlahPendaki = parseInt(jumlahPendakiInput.value);
 
-            if (anggotaText === '') {
-                alert("Data anggota tidak boleh kosong.");
-                e.preventDefault();
-                return;
-            }
+    if (anggotaText === '') {
+        alert("Data anggota tidak boleh kosong.");
+        e.preventDefault();
+        return;
+    }
 
-            if (jumlahPendaki < 2) {
-                alert("Jumlah pendaki minimal 2 orang (termasuk ketua).");
-                e.preventDefault();
-                return;
-            }
+    if (jumlahPendaki < 2) {
+        alert("Jumlah pendaki minimal 2 orang (termasuk ketua).");
+        e.preventDefault();
+        return;
+    }
 
             let anggotaLines = anggotaText.split('\n');
             let formatSalah = false;
