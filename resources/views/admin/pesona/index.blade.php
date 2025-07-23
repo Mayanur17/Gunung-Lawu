@@ -5,8 +5,8 @@
 @endpush
 
 @section('content')
-<h2>Data Peralatan TekTok</h2>
-<a href="{{ route('pesona.create') }}" class="tombol-tambah">+ Tambah Peralatan</a>
+<h2>Data Pesona Lawu</h2>
+<a href="{{ route('pesona.create') }}" class="tombol-tambah">+ Tambah Pesona</a>
 <div class="table-responsive">
 <table>
     <thead>
