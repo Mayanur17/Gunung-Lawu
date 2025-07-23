@@ -7,7 +7,7 @@ h3 {
     color: #2c3e50;
 }
 
-/* Responsif untuk layar kecil */
+
 @media (max-width: 600px) {
     h3 {
         font-size: 20px;
@@ -69,7 +69,7 @@ td img {
 }
 
 
-/* === Tombol Aksi: Edit dan Hapus === */
+
 td a {
     background-color: #4CAF50;
     color: white;
@@ -105,7 +105,7 @@ td form button:hover {
     background-color: #c82333;
 }
 
-/* === Tombol Tambah=== */
+
 a.tombol-tambah{
     background-color: #0066cc;
     color: white;
@@ -146,7 +146,7 @@ form.admin-form label {
     margin-top: 15px;
 }
 
-/* Input dan Textarea */
+
 form.admin-form input[type="text"],
 form.admin-form textarea,
 form.admin-form input[type="file"] {
@@ -158,13 +158,13 @@ form.admin-form input[type="file"] {
     font-family: 'Segoe UI', sans-serif;
 }
 
-/* Textarea khusus */
+
 form.admin-form textarea {
     height: 120px;
     resize: vertical;
 }
 
-/* Tombol */
+
 form.admin-form button {
     margin-top: 20px;
     padding: 10px 20px;
@@ -175,7 +175,7 @@ form.admin-form button {
     cursor: pointer;
 }
 
-/* Responsif untuk layar kecil */
+
 @media (max-width: 600px) {
     form.admin-form {
         padding: 20px;
@@ -307,11 +307,6 @@ form input[type="number"] {
 .btn-approve:hover {
     background-color: #27ae60;
 }
-
-
-
-
-
 
 .admin-booking-detail {
     max-width: 800px;
