@@ -6,7 +6,7 @@
 
 @section('content')
 <h3>Tambah Persiapan Pendakian Gunung Lawu</h3>
-
+<div class="table-responsive">
 <form action="{{ route('persiapan.store') }}" method="POST" class="admin-form">
     @csrf
 
@@ -18,4 +18,5 @@
 
     <button type="submit">Simpan</button>
 </form>
+</div>
 @endsection
