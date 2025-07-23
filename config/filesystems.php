@@ -2,9 +2,9 @@
 
 return [
 
-    'default' => env('FILESYSTEM_DISK', 'lokal'),
+    'default' => env('FILESYSTEM_DISK', 'local'),
     
-    'cloud' => env('FILESYSTEM_CLOUD', 'cloudinary'),
+'cloud' => 'cloudinary',
 
     'disks' => [
 
