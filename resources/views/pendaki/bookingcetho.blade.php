@@ -68,9 +68,10 @@
 
             <label>Alamat:</label>
             <textarea name="alamat_ketua" rows="2" required></textarea>
+           
             <label>No Identitas:</label>
-            <input type="text" name="no_identitas_ketua" id="no_identitas_ketua" maxlength="20" pattern="\d+" title="Hanya angka yang diperbolehkan" required>
-
+            <input type="text" name="no_identitas_ketua" id="no_identitas_ketua" minlength="9" maxlength="16" pattern="\d{9,16}" title="Isi dengan 9 hingga 16 digit angka" required>
+            
             <label>No HP / WA:</label>
             <input type="text" name="no_telp" maxlength="13" pattern="\d{10,13}" title="Masukkan 10 hingga 13 digit angka" required>
 
@@ -267,7 +268,13 @@ Sari, Perempuan, Jogja, 0822334455"></textarea>
                 alert("Format penulisan anggota salah. Gunakan format: Nama, Jenis Kelamin, Alamat, No HP");
                 e.preventDefault();
                 return;
-            }
+            }            
+        const identitas = identitasInput.value;
+        if (identitas.length < 9 || identitas.length > 16) {
+        alert("No Identitas harus terdiri dari 9 hingga 16 digit angka.");
+        e.preventDefault();
+        return;
+    }
         });
     });
 </script>
