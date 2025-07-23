@@ -24,7 +24,7 @@ class CeritaPendakiController extends Controller
         ]);
 
         $gambarPath = $request->hasFile('gambar')
-            ? $request->file('gambar')->store('cerita', 'public')
+            ? $request->file('gambar')->store('public','cerita')
             : null;
 
         CeritaPendaki::create([

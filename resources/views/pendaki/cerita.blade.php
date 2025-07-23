@@ -8,7 +8,6 @@
 <div class="cerita-wrapper">
     <h2>Cerita Pendaki</h2>
 
-    {{-- Form kirim cerita --}}
     <form class="cerita-form" action="{{ route('cerita.simpan') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <textarea name="isi" rows="4" placeholder="Bagikan ceritamu..." required></textarea>
@@ -26,7 +25,6 @@
             @endif
             <p>{{ $item->isi }}</p>
 
-            {{-- Komentar --}}
             <div class="story-komentar">
                 <h5>Komentar:</h5>
                 @foreach($item->balasan as $balas)

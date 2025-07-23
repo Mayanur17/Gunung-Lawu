@@ -21,7 +21,7 @@
         <tr>
             <td>{{ $item->judul }}</td>
             <td>{{ Str::limit($item->deskripsi, 100) }}</td>
-            <td><img src="{{ asset('storage/' . $item->gambar) }}" width="100">
+            <td><img src="{{ asset('storage/images' . $item->gambar) }}" width="100">
             <td>
                 <a href="{{ route('pesona.show', $item->id) }}">Lihat</a> 
                 <a href="{{ route('pesona.edit', $item->id) }}">Edit</a>
