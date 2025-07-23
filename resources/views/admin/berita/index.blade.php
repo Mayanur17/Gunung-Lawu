@@ -24,7 +24,7 @@
             <td>{{ Str::limit($item->deskripsi, 100) }}</td>
             <td>
                 @if($item && $item->gambar)
-                    <img src="{{ $item->gambar }}" width="100">
+                    <img src="{{ $item->gambar ?? '' }}" width="100">
                 @endif
             </td>
             <td>
