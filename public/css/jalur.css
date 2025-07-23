@@ -278,3 +278,22 @@ image {
 .tabel-kuota .delete-button:hover {
     background-color: #c0392b;
 }
+ @media (max-width: 600px) {
+        .form-kuota {
+            padding: 10px;
+        }
+
+        .tabel-kuota th, .tabel-kuota td {
+            font-size: 0.85rem;
+            padding: 6px;
+        }
+
+        .tabel-kuota input[type="number"] {
+            width: 50px;
+        }
+
+        .tabel-kuota button {
+            font-size: 0.75rem;
+            padding: 4px 8px;
+        }
+    }
