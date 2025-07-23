@@ -26,8 +26,6 @@ class CemorosewuKuotaController extends Controller
     return redirect()->back()->with('success', 'Kuota berhasil ditambahkan.');
 }
 
-
-
     public function update(Request $request, $id)
     {
         $request->validate([

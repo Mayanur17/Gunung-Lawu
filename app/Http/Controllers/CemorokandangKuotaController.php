@@ -7,14 +7,11 @@ use App\Models\CemorokandangKuota;
 
 class CemorokandangKuotaController extends Controller
 {
-    // Tampilkan daftar kuota
     public function index()
     {
         $data = CemorokandangKuota::orderBy('tanggal', 'asc')->get();
         return view('admin.kuota.cemorokandang.index', compact('data'));
     }
-
-    // Simpan kuota baru
     public function store(Request $request)
     {
         $request->validate([
@@ -30,7 +27,6 @@ class CemorokandangKuotaController extends Controller
         return redirect()->back()->with('success', 'Kuota berhasil ditambahkan.');
     }
 
-    // Update kuota
     public function update(Request $request, $id)
     {
         $request->validate([
@@ -45,7 +41,6 @@ class CemorokandangKuotaController extends Controller
         return redirect()->back()->with('success', 'Kuota berhasil diperbarui.');
     }
 
-    // Hapus kuota
     public function destroy($id)
     {
         $item = CemorokandangKuota::findOrFail($id);

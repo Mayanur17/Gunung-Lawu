@@ -15,17 +15,15 @@ class BalasanCerita extends Model
 
     protected $fillable = [
         'cerita_id',
-        'user_id', // ditambahkan agar bisa menyimpan siapa yang membalas
+        'user_id', 
         'isi',
     ];
 
-    // Relasi ke cerita (setiap balasan milik satu cerita)
     public function cerita()
     {
         return $this->belongsTo(CeritaPendaki::class, 'cerita_id');
     }
 
-    // Relasi ke user (setiap balasan dibuat oleh seorang user)
     public function user()
     {
         return $this->belongsTo(User::class, 'user_id');

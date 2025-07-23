@@ -23,7 +23,7 @@
         </ul>
     </div>
 @endif
-    <form action="{{ route('booking.cemorokandang.simpan') }}" method="POST" enctype="multipart/form-data">
+    <form id="formBooking" action="{{ route('booking.cemorokandang.simpan') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <input type="hidden" name="jalur" value="Cemoro Kandang">
 
@@ -155,7 +155,7 @@ Sari, Perempuan, Jogja, 0822334455"></textarea>
         const tanggalTurun = document.getElementById('tanggal_turun');
         const kuotaWarning = document.getElementById('kuotaWarning');
         const kuotaInfo = document.getElementById('kuotaInfo');
-        const kirimButton = document.getElementById('btnKirimBooking');
+        const formBooking = document.getElementById('formBooking');
         const inputTelp = document.querySelector('input[name="no_telp"]');
         const identitasInput = document.getElementById('no_identitas_ketua');
 
@@ -221,21 +221,23 @@ Sari, Perempuan, Jogja, 0822334455"></textarea>
             }
         });
 
-        form.addEventListener('submit', function (e) {
-            let anggotaText = anggotaTextarea.value.trim();
-            let jumlahPendaki = parseInt(jumlahPendakiInput.value);
+            const formBooking = document.getElementById('formBooking');
 
-            if (anggotaText === '') {
-                alert("Data anggota tidak boleh kosong.");
-                e.preventDefault();
-                return;
-            }
+formBooking.addEventListener('submit', function (e) {
+    let anggotaText = anggotaTextarea.value.trim();
+    let jumlahPendaki = parseInt(jumlahPendakiInput.value);
 
-            if (jumlahPendaki < 2) {
-                alert("Jumlah pendaki minimal 2 orang (termasuk ketua).");
-                e.preventDefault();
-                return;
-            }
+    if (anggotaText === '') {
+        alert("Data anggota tidak boleh kosong.");
+        e.preventDefault();
+        return;
+    }
+
+    if (jumlahPendaki < 2) {
+        alert("Jumlah pendaki minimal 2 orang (termasuk ketua).");
+        e.preventDefault();
+        return;
+    }
 
             let anggotaLines = anggotaText.split('\n');
             let formatSalah = false;

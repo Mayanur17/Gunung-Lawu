@@ -46,25 +46,21 @@ class BookingKandangController extends Controller
         'anggota.required' => 'Data anggota tidak boleh kosong.',
     ]);
 
-    // 1. Cek apakah kuota tersedia di tanggal yang dipilih
     $kuota = CemorokandangKuota::where('tanggal', $request->tanggal_pendakian)->first();
     if (!$kuota) {
         return back()->with('error', 'Kuota belum tersedia untuk tanggal tersebut.');
     }
 
-    // 2. Hitung total pendaki yang sudah booking dan status aktif
     $total_terpakai = CemorokandangDetail::where('tanggal_pendakian', $request->tanggal_pendakian)
         ->whereIn('status', ['approve', 'pending', 'menunggu'])
         ->sum('jumlah_pendaki');
 
     $sisa_kuota = $kuota->kuota - $total_terpakai;
 
-    // 3. Cek apakah jumlah_pendaki melebihi sisa kuota
     if ($request->jumlah_pendaki > $sisa_kuota) {
         return back()->with('error', 'Sisa kuota hanya ' . $sisa_kuota . ' orang. Anda mencoba mendaftar ' . $request->jumlah_pendaki . ' orang.');
     }
 
-    // 4. Upload foto jika ada
     $path = null;
     if ($request->hasFile('foto_identitas')) {
     $file = $request->file('foto_identitas');
@@ -74,7 +70,6 @@ class BookingKandangController extends Controller
 }
 
 
-    // 5. Simpan booking
     $booking = CemorokandangDetail::create([
         'user_id' => Auth::id(),
         'tanggal_pendakian' => $request->tanggal_pendakian,
@@ -92,7 +87,6 @@ class BookingKandangController extends Controller
         'status' => 'pending'
     ]);
 
-    // 6. Simpan anggota
     $lines = explode("\n", $request->anggota);
     foreach ($lines as $line) {
         $parts = array_map('trim', explode(',', $line));
@@ -109,16 +103,6 @@ class BookingKandangController extends Controller
 
     return back()->with('success', 'Booking berhasil, menunggu konfirmasi admin.');
 }
-
-
-
-
-
-
-
-
-
-
     public function index()
     {
         $data = CemorokandangDetail::with('anggota')->latest()->get();
