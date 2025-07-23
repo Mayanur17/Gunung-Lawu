@@ -22,11 +22,7 @@
         <tr>
             <td>{{ $item->judul }}</td>
             <td>{{ Str::limit($item->deskripsi, 100) }}</td>
-            <td>
-                @if($item->gambar)
-                    <img src="{{ secure_asset('images/' . $item->gambar) }}" width="100">
-                @endif
-            </td>
+            <td> <img src="{{ $item->gambar }}" width="100"></td>
             <td>
                 <a href="{{ route('berita.show', $item->id) }}">Lihat</a> |
                 <a href="{{ route('berita.edit', $item->id) }}">Edit</a>

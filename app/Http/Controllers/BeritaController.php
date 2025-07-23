@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 use App\Models\Berita;
 use Illuminate\Http\Request;
 
@@ -16,31 +16,22 @@ class BeritaController extends Controller
         return view('admin.berita.create');
     }
 
-    public function store(Request $request) {
-        $request->validate([
-            'judul' => 'required',
-            'deskripsi' => 'required',
-            'gambar' => 'required|image|file|max:2048'
-        ]);
+    public function store(Request $request)
+{
+    $request->validate([
+        'gambar' => 'required|image|max:2048',
+    ]);
 
-        if ($request->hasFile('gambar')) {
-            $file = $request->file('gambar');
-            $filename = time() . '_' . $file->getClientOriginalName();
-            $file->move(public_path('images'), $filename);
-        }
+    $uploadedFileUrl = Cloudinary::upload($request->file('gambar')->getRealPath())->getSecurePath();
 
-        try {
-            Berita::create([
-                'judul' => $request->judul,
-                'deskripsi' => $request->deskripsi,
-                'gambar' => $filename
-            ]);
-        } catch (\Exception $e) {
-            dd('Gagal menyimpan data: ' . $e->getMessage());
-        }
+    ModelBerita::create([
+        'judul' => $request->judul,
+        'deskripsi' => $request->deskripsi,
+        'gambar' => $uploadedFileUrl, 
+    ]);
 
-        return redirect()->route('berita.index')->with('success', 'Berita berhasil ditambahkan');
-    }
+    return back()->with('success', 'Berita berhasil ditambahkan');
+}
 
     public function edit(Berita $berita) {
         return view('admin.berita.edit', compact('berita'));
