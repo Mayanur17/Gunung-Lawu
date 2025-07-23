@@ -95,9 +95,8 @@
         </div>
     </div>
 @endif
-{{-- Google Maps untuk masing-masing jalur --}}
 <div class="maps-section">
-    <h4>Lokasi Jalur di Google Maps</h4>
+    <h4>Lokasi Basecamp di Google Maps</h4>
     <div class="map-embed" style="width: 100%; height: 400px;">
         @php
             $jalurNama = strtolower($jalur->jalur_pendakian);
