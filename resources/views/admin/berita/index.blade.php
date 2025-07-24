@@ -21,10 +21,12 @@
         @foreach($data as $item)
         <tr>
             <td>{{ $item->judul }}</td>
-            <td>{{ Str::limit($item->deskripsi, 100) }}</td>
+            <td>{{ \Illuminate\Support\Str::limit($item->deskripsi, 100) }}</td>
             <td>
                 @if($item && $item->gambar)
-                    <img src="{{ $item->gambar ?? '' }}" width="100">
+                <img src="{{ route('berita.gambar', $item->id) }}" alt="Gambar" width="100">
+                @else
+                    Tidak ada gambar
                 @endif
             </td>
             <td>

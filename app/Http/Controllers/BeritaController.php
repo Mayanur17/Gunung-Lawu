@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Berita;
 use Illuminate\Http\Request;
-use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 
 class BeritaController extends Controller
 {
@@ -25,22 +24,15 @@ class BeritaController extends Controller
             'gambar'    => 'required|image|max:2048',
         ]);
 
-        // Upload gambar ke Cloudinary
-        $uploadedFileUrl = null;
+        $gambar = null;
         if ($request->hasFile('gambar')) {
-            $gambar = $request->file('gambar');
-            $uploadResult = Cloudinary::upload($gambar->getRealPath(), [
-                'folder' => 'berita_gununglawu'
-            ]);
-
-            $uploadedFileUrl = $uploadResult->getSecurePath();
+            $gambar = file_get_contents($request->file('gambar')->getRealPath());
         }
 
-        // Simpan data ke database
         Berita::create([
             'judul'     => $request->judul,
             'deskripsi' => $request->deskripsi,
-            'gambar'    => $uploadedFileUrl,
+            'gambar'    => $gambar,
         ]);
 
         return back()->with('success', 'Berita berhasil ditambahkan');
@@ -64,12 +56,7 @@ class BeritaController extends Controller
         ];
 
         if ($request->hasFile('gambar')) {
-            $gambar = $request->file('gambar');
-            $uploadResult = Cloudinary::upload($gambar->getRealPath(), [
-                'folder' => 'berita_gununglawu'
-            ]);
-
-            $data['gambar'] = $uploadResult->getSecurePath();
+            $data['gambar'] = file_get_contents($request->file('gambar')->getRealPath());
         }
 
         $berita->update($data);
@@ -84,5 +71,12 @@ class BeritaController extends Controller
 
     public function show(Berita $berita) {
         return view('admin.berita.show', compact('berita'));
+    }
+
+    public function tampilkanGambar($id)
+    {
+        $berita = Berita::findOrFail($id);
+
+        return response($berita->gambar)->header('Content-Type', 'image/jpeg');
     }
 }

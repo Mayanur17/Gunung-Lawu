@@ -46,6 +46,7 @@ Route::middleware(['auth', RoleMiddleware::class . ':admin'])->group(function ()
     Route::resource('admin/persiapan', PersiapanController::class)->names('persiapan');
     Route::resource('admin/info', InfoController::class)->names('info');
     Route::resource('admin/berita', BeritaController::class)->names('berita')->parameters(['berita' => 'berita']);
+    Route::get('/gambar-berita/{id}', [BeritaController::class, 'tampilkanGambar'])->name('berita.gambar');
     Route::get('/admin/jalur', [JalurController::class, 'index'])->name('jalur.index');
     Route::get('/admin/jalur/edit/{jalur}', [JalurController::class, 'edit'])->name('jalur.edit');
     Route::put('/admin/jalur/update/{jalur}', [JalurController::class, 'update'])->name('jalur.update');
