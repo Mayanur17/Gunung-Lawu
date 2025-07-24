@@ -4,7 +4,6 @@ return [
 
     'default' => env('FILESYSTEM_DISK', 'local'),
 
-    // Tambahkan bagian ini:
     'cloud' => env('FILESYSTEM_CLOUD', 'cloudinary'),
 
     'disks' => [
@@ -51,5 +50,6 @@ return [
     'links' => [
         public_path('storage') => storage_path('app/public'),
     ],
+    'cloud'=>'cloudinary',
 
 ];
